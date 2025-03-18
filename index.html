@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Stress Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+        input, select {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Predict Student Stress Level</h2>
+        <form action="/predict" method="post">
+            <label>Gender:</label><br>
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br>
+
+            <label>Age:</label><br>
+            <input type="text" name="age" required><br>
+
+            <label>Academic Year:</label><br>
+            <input type="text" name="academic_year" required><br>
+
+            <label>Average Sleep (e.g., 4-6):</label><br>
+            <input type="text" name="average_sleep" required><br>
+
+            <label>Depression Level (1-10):</label><br>
+            <input type="text" name="depression" required><br>
+
+            <label>Anxiety Level (1-10):</label><br>
+            <input type="text" name="anxiety" required><br>
+
+            <label>CGPA:</label><br>
+            <input type="text" name="cgpa" required><br>
+
+            <label>Stress Level (1-10):</label><br>
+            <input type="text" name="stress_level" required><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <p class="result">{{ prediction }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
